@@ -14,6 +14,8 @@ final class ImageCell: UICollectionViewCell {
 }
 
 final class ViewerCollectionViewController: UICollectionViewController {
+    @IBOutlet private weak var flowLayout: UICollectionViewFlowLayout!
+
     private var imageUrls: [URL] = [] {
         didSet {
             if oldValue != imageUrls {
@@ -29,6 +31,17 @@ final class ViewerCollectionViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         reloadImagePaths()
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let columnCount = 3
+        let cellSize = ((view.frame.width + flowLayout.minimumInteritemSpacing) / CGFloat(columnCount)) - flowLayout.minimumInteritemSpacing
+        if flowLayout.itemSize.width != cellSize {
+            flowLayout.itemSize = .init(width: cellSize, height: cellSize)
+            collectionView.reloadData()
+        }
     }
 
     private func reloadImagePaths() {
@@ -54,12 +67,8 @@ extension ViewerCollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print("hoge1")
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ImageCell
-        print("hoge \(cell)")
-        print("hoge \(String(describing: cell.imageView))")
         let imageUrl = imageUrls[indexPath.row]
-        print("hoge \(imageUrl)")
 
         cell.imageView.image = UIImage(contentsOfFile: imageUrl.path)
         cell.layer.cornerRadius = 4.0

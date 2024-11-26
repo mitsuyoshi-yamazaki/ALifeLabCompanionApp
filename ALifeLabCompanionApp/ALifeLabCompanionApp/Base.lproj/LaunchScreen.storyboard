@@ -16,8 +16,19 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="wOc-qO-c4h">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wOc-qO-c4h" secondAttribute="trailing" id="B0I-8d-lsP"/>
+                            <constraint firstItem="wOc-qO-c4h" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="r64-Sc-utd"/>
+                            <constraint firstItem="wOc-qO-c4h" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="r86-9g-cw9"/>
+                            <constraint firstAttribute="bottom" secondItem="wOc-qO-c4h" secondAttribute="bottom" id="zvL-us-xQz"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xgh-mu-inO"/>
                 </viewController>
@@ -27,6 +38,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LaunchImage" width="402" height="1035"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

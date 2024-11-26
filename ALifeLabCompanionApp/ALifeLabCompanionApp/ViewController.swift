@@ -47,19 +47,19 @@ extension ViewController: WKDownloadDelegate {
         let fileManager = FileManager.default
         if let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
             let destinationURL = documentsURL.appendingPathComponent(suggestedFilename)
-            print("save downloading file to \(suggestedFilename)")
+//            print("save downloading file to \(suggestedFilename)")
             completionHandler(destinationURL)
         } else {
-            print("unable to find save location")
+//            print("unable to find save location")
             completionHandler(nil)
         }
     }
 
     func downloadDidFinish(_ download: WKDownload) {
-        print("download finished: \(download)")
+//        print("download finished: \(download)")
     }
 
     func download(_ download: WKDownload, didFailWithError error: any Error, resumeData: Data?) {
-        print("download failed with error: \(error)")
+//        print("download failed with error: \(error)")
     }
 }
