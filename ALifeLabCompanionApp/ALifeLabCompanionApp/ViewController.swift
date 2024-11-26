@@ -20,6 +20,12 @@ final class ViewController: UIViewController {
 
         webView.load(.init(url: .init(string: "https://mitsuyoshi-yamazaki.github.io/ALifeLab/pages/drawer.html?system.run=0&system.auto_download=0")!))
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        webView.reload()
+    }
 }
 
 extension ViewController: WKNavigationDelegate {
